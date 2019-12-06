@@ -1,3 +1,6 @@
+# Google Spreadsheets API credentials 
+/client_secret.json
+
 # Logs
 logs
 *.log

@@ -1,3 +1,21 @@
+## resources
+
+## source for google spreadsheet demo
+
+https://medium.com/@jaejohns/how-to-use-google-sheets-as-your-website-database-b0f2f13d0396
+
+# example client_secret.json
+
+<!-- {
+  "dummy data",
+  "dummy data",
+  "dummy data",
+  "dummy data",
+  "dummy data"
+} -->
+
+## generate and save HTML static HTML files
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
@@ -8,7 +26,7 @@
   Gatsby's hello-world starter
 </h1>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.x
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
