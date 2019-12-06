@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import "../components/base.css"
 import Layout from "../components/layoutAlt"
 import { rhythm } from "../utils/typography"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   // Bug patch: replace first instance of '>,<' w/ ><
@@ -13,6 +14,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <div
         css={css`
           margin-top: ${rhythm(4)};
@@ -38,6 +40,7 @@ export const query = graphql`
       frontmatter {
         title
       }
+      excerpt
     }
   }
 `

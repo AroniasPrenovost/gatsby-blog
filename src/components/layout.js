@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "@emotion/core"
-import Footer from "./footer"
 import "./base.css"
 import "./layout.css"
 import { useStaticQuery, Link, graphql } from "gatsby"
@@ -56,7 +55,6 @@ export default ({ children }) => {
         About
       </Link> */}
         {children}
-        <Footer></Footer>
       </div>
     </div>
   )
