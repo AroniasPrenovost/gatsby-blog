@@ -34,7 +34,7 @@ export default ({ children }) => {
     return res
   }
 
-  var currentPath = window.location.pathname
+  //   var currentPath = window.location.pathname // broken hack, need to pass props
   var files = flattenObj(data)
   var postCount = 0
   files = Object.values(files)
