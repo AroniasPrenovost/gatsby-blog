@@ -4,8 +4,7 @@ import "./base.css"
 import "./layout.css"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
-import { withPrefix } from "gatsby-link"
-import { Location } from "@reach/router"
+import { toggleHover } from "./custom"
 
 export default ({ children }) => {
   const data = useStaticQuery(

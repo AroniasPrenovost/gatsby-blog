@@ -9,7 +9,7 @@ export default ({ data }) => {
     <Layout>
       <div
         css={css`
-          margin-top: ${rhythm(4)};
+          smargin-top: ${rhythm(4)};
           color: #dfe4ea;
         `}
       >
