@@ -62,7 +62,7 @@ cron.schedule("*/100 * * * * *", function() {
           pageContent,
           function(err) {
             if (err) throw err
-            console.log("created: " + postObj.file_name)
+            console.log("successfully created: " + postObj.file_name)
           }
         )
       }
