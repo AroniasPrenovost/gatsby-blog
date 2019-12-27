@@ -9,7 +9,7 @@ const cron = require("node-cron")
 var GoogleSpreadsheet = require("google-spreadsheet")
 var creds = require("./client_secret.json")
 
-cron.schedule("*/1 * * * * *", function () {
+cron.schedule("*/100 * * * * *", function () {
   var doc = new GoogleSpreadsheet(creds["spreadsheet_id"])
   doc.useServiceAccountAuth(creds, function (err) {
     doc.getRows(1, function (err, rows) {
