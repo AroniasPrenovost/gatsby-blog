@@ -1,22 +1,30 @@
 // build spreadsheet data
 const fs = require("fs")
+const path = require('path');
 const cron = require("node-cron")
 
 // get google sheet data, build markdown filess
 var GoogleSpreadsheet = require("google-spreadsheet")
-var creds = require("../../client_secret.json")
+var creds = require("./client_secret.json")
 
-console.log('--------------')
-console.log('--------------')
-console.log('--------------')
+cron.schedule("*/100 * * * * *", function () {
 
-cron.schedule("*/1 * * * * *", function () {
+    // clear files 
+    const directory = './src/pages/blog';
+    fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+            fs.unlink(path.join(directory, file), err => {
+                if (err) throw err;
+            });
+        }
+    });
+
     var doc = new GoogleSpreadsheet(creds["spreadsheet_id"])
     doc.useServiceAccountAuth(creds, function (err) {
         doc.getRows(1, function (err, rows) {
             // remove unused rows
-
-
             for (var i = 0; i < rows.length; i++) {
                 delete rows[i]._xml
                 delete rows[i].id
@@ -64,7 +72,7 @@ cron.schedule("*/1 * * * * *", function () {
 
                         if (postObj.file_name !== '.md') {
                             fs.writeFile(
-                                "./test/" + postObj.file_name,
+                                "./src/pages/blog/" + postObj.file_name,
                                 pageContent,
                                 function (err) {
                                     if (err) throw err
