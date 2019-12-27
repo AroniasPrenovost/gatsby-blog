@@ -9,10 +9,10 @@ const cron = require("node-cron")
 var GoogleSpreadsheet = require("google-spreadsheet")
 var creds = require("./client_secret.json")
 
-cron.schedule("*/100 * * * * *", function() {
+cron.schedule("*/100 * * * * *", function () {
   var doc = new GoogleSpreadsheet(creds["spreadsheet_id"])
-  doc.useServiceAccountAuth(creds, function(err) {
-    doc.getRows(1, function(err, rows) {
+  doc.useServiceAccountAuth(creds, function (err) {
+    doc.getRows(1, function (err, rows) {
       // remove unused rows
       for (var i = 0; i < rows.length; i++) {
         delete rows[i]._xml
@@ -57,14 +57,16 @@ cron.schedule("*/100 * * * * *", function() {
 
         pageContent.join("")
 
-        fs.writeFile(
-          "./src/pages/blog/" + postObj.file_name,
-          pageContent,
-          function(err) {
-            if (err) throw err
-            console.log("successfully created: " + postObj.file_name)
-          }
-        )
+        if (postObj.file_name !== '.md') {
+          fs.writeFile(
+            "./src/pages/blog/" + postObj.file_name,
+            pageContent,
+            function (err) {
+              if (err) throw err
+              console.log("successfully created: " + postObj.file_name)
+            }
+          )
+        }
       }
     })
   })
