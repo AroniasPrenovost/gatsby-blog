@@ -1,13 +1,10 @@
-// build spreadsheet data
+// get google sheet data, build markdown files
 const fs = require("fs")
 const path = require('path');
-const cron = require("node-cron")
-
-// get google sheet data, build markdown filess
 var GoogleSpreadsheet = require("google-spreadsheet")
 var creds = require("./client_secret.json")
 
-cron.schedule("*/100 * * * * *", function () {
+function buildSpreadsheet() {
 
     // clear files 
     const directory = './src/pages/blog';
@@ -85,4 +82,6 @@ cron.schedule("*/100 * * * * *", function () {
             }
         })
     })
-})
+}
+
+exports.buildSpreadsheet = buildSpreadsheet;

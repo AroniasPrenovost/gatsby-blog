@@ -1,7 +1,12 @@
 const path = require("path")
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const cron = require("node-cron")
+const build = require('./spreadsheet.js')
 
 // new markdown files are generated via cron job in 'spreadsheet.js' 
+cron.schedule("*/500 * * * * *", function () {
+  build.buildSpreadsheet();
+});
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
