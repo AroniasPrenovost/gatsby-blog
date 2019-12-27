@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
@@ -23,6 +24,7 @@
     "gatsby-source-filesystem": "^2.1.39",
     "gatsby-source-google-sheets": "^1.1.1",
     "gatsby-transformer-remark": "^2.6.38",
+    "gh-pages": "^2.1.1",
     "google-spreadsheet": "^2.0.8",
     "node-cron": "^2.0.3",
     "react": "^16.12.0",
