@@ -37,7 +37,7 @@ cron.schedule("*/100 * * * * *", function () {
               .toLowerCase()
               .concat(".md")
 
-            postObj.date = rows[i]["blog-post-date"]
+            postObj.date = rows[i]["blog-post-date"].replace('test', '')
 
             var pageContent = []
             // date + title markdown header
